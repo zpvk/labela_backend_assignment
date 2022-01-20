@@ -8,8 +8,8 @@ Our tech stack
 Before we start off, let me elaborate about our tech stack. For most projects, we use the following technologies:
 
 * Python, for rapid development
-* Relational database
-* Choose a framework you like
+* Relational database, mostly PostgreSQL
+* We mostly use Django as a framefork, but for this assignment you can choose a python framework you know best
 * Database ORM, because not writing your own SQL statements is faster and more secure (ORM takes care of not allowing SQL Injection etc)
 
 The assignment
