@@ -47,3 +47,11 @@ How to score bonus points (ergo: we really advise you to tackle it this way):
 * Document how we can set up and instantiate the project, so we can easily test it functionally
 
 If you have any questions, feel free to contact us! Any feedback on this exercise is always welcome!
+
+
+**Want to run the project in Docker?**
+
+- ```docker build -t autocompany .```
+- ``` docker run -p 80:80 -d autocompany```
+- Navigate to ```http://127.0.0.1/```
+
