@@ -15,6 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the codebase into the container
 COPY . .
 
+COPY ./api/management/create_superuser.py /app/api/management/
+
 RUN ./manage.py collectstatic --noinput
 
 # Ops Parameters
@@ -25,7 +27,10 @@ ENV WORKERS=2 \
     DB_USER=postgres \
     DB_PASSWORD=postgres \
     DB_HOST=db \
-    DB_PORT=5432
+    DB_PORT=5432 \
+    DEBUG=True \
+    SECRET_KEY=my_secret_key
+
 
 EXPOSE ${PORT}
 
@@ -39,6 +44,6 @@ CMD /wait-for-postgres.sh db set -xe; \
     python3 manage.py makemigrations; \
     python3 manage.py migrate --noinput; \
     python3 manage.py loaddata fixtures/db_data.json; \
-    DJANGO_SUPERUSER_PASSWORD=admin python3 manage.py createsuperuser --username 'admin' --email 'admin@email.com'; \
+    python3 api/management/create_superuser.py; \
     python3 manage.py runserver 0.0.0.0:${PORT}
 

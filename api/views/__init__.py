@@ -1,0 +1,1 @@
+from .userRegistrationView import UserRegistrationView

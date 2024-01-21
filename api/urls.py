@@ -1,24 +1,12 @@
 from django.urls import path, re_path
-from .views import (
-    ProductListCreateView,
-    ProductDetailView,
-    ProductListView,
-)
-from .views import (
-    RemoveFromCartView,
-    AddToCartView,
-    ViewCartView,
-    CheckoutView,
-)
-from .views import (
-    UserRegistrationView,
-    CustomAuthTokenView,
-    NotFoundView
-)
-
+from api.views.userRegistrationView import UserRegistrationView
+from api.views.productView import ProductListCreateView, ProductListView, ProductDetailView
+from api.views.cartView import AddToCartView, RemoveFromCartView, ViewCartView
+from api.views.customAuthTokenView import CustomAuthTokenView
+from api.views.checkoutView import CheckoutView
+from api.views.notFoundView import NotFoundView
 
 from django.views.generic import TemplateView
-
 
 urlpatterns = [
     path('register/', UserRegistrationView.as_view(), name='user-registration'),
@@ -30,9 +18,7 @@ urlpatterns = [
     path('cart/view/', ViewCartView.as_view(), name='view-cart'),
     path('api-token-auth/', CustomAuthTokenView.as_view(), name='custom_api_token_auth'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
-    path('swagger-ui/', TemplateView.as_view(
-        template_name='swagger-ui.html',
-        extra_context={'schema_url': 'openapi-schema'}
+    path('swagger-ui/', TemplateView.as_view(template_name='swagger-ui.html',extra_context={'schema_url': 'openapi-schema'}
     ), name='swagger-ui'),
     re_path(r'^.*$', NotFoundView.as_view()),
     
