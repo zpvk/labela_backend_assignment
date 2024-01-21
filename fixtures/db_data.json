@@ -1,0 +1,137 @@
+[
+  {
+    "model": "api.product",
+    "pk": 1,
+    "fields": {
+      "name": "Product 1",
+      "description": "This is the description for Product 1.",
+      "price": 19.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 2,
+    "fields": {
+      "name": "Product 2",
+      "description": "This is the description for Product 2.",
+      "price": 29.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 3,
+    "fields": {
+      "name": "Product 3",
+      "description": "This is the description for Product 3.",
+      "price": 39.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 4,
+    "fields": {
+      "name": "Product 4",
+      "description": "This is the description for Product 4.",
+      "price": 49.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 5,
+    "fields": {
+      "name": "Product 5",
+      "description": "This is the description for Product 5.",
+      "price": 59.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 6,
+    "fields": {
+      "name": "Product 6",
+      "description": "This is the description for Product 6.",
+      "price": 69.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 7,
+    "fields": {
+      "name": "Product 7",
+      "description": "This is the description for Product 7.",
+      "price": 79.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 8,
+    "fields": {
+      "name": "Product 8",
+      "description": "This is the description for Product 8.",
+      "price": 89.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 9,
+    "fields": {
+      "name": "Product 9",
+      "description": "This is the description for Product 9.",
+      "price": 99.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 10,
+    "fields": {
+      "name": "Product 10",
+      "description": "This is the description for Product 10.",
+      "price": 109.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 11,
+    "fields": {
+      "name": "Product 11",
+      "description": "This is the description for Product 11.",
+      "price": 119.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 12,
+    "fields": {
+      "name": "Product 12",
+      "description": "This is the description for Product 12.",
+      "price": 129.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 13,
+    "fields": {
+      "name": "Product 13",
+      "description": "This is the description for Product 13.",
+      "price": 139.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 14,
+    "fields": {
+      "name": "Product 14",
+      "description": "This is the description for Product 14.",
+      "price": 149.99
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": 15,
+    "fields": {
+      "name": "Product 15",
+      "description": "This is the description for Product 15.",
+      "price": 159.99
+    }
+  }
+]

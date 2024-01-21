@@ -1,0 +1,514 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "AutoCompany",
+      "contact": {}
+    },
+    "host": "127.0.0.1:8000",
+    "basePath": "/api",
+    "securityDefinitions": {},
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/products": {
+        "get": {
+          "summary": "Products",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Products",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "page",
+              "in": "query",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "page_size",
+              "in": "query",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/register": {
+        "post": {
+          "summary": "User register",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Userregister",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/UserregisterRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/api-token-auth": {
+        "post": {
+          "summary": "Registered user token",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Registeredusertoken",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/RegisteredusertokenRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/products/3": {
+        "get": {
+          "summary": "Product detail",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Productdetail",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        },
+        "put": {
+          "summary": "Update Product Admin",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "UpdateProductAdmin",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/UpdateProductAdminRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        },
+        "delete": {
+          "summary": "Delete Product Admin",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "DeleteProductAdmin",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/admin/products": {
+        "post": {
+          "summary": "Add Product Admin",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "AddProductAdmin",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/AddProductAdminRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/cart/add": {
+        "post": {
+          "summary": "Add to cart",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Addtocart",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/AddtocartRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/cart/view": {
+        "get": {
+          "summary": "View Cart",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "ViewCart",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/cart/remove/5": {
+        "delete": {
+          "summary": "Remove cart item",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Removecartitem",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/checkout": {
+        "post": {
+          "summary": "Order",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Order",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/OrderRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      }
+    },
+    "definitions": {
+      "UserregisterRequest": {
+        "title": "UserregisterRequest",
+        "example": {
+          "email": "pasand@gmail.com",
+          "username": "pasand",
+          "password": "123"
+        },
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "username",
+          "password"
+        ]
+      },
+      "RegisteredusertokenRequest": {
+        "title": "RegisteredusertokenRequest",
+        "example": {
+          "username": "pasand",
+          "password": "123"
+        },
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "AddProductAdminRequest": {
+        "title": "AddProductAdminRequest",
+        "example": {
+          "name": "Head Light",
+          "description": "Head light for Tesla",
+          "price": "1000.00"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "price"
+        ]
+      },
+      "UpdateProductAdminRequest": {
+        "title": "UpdateProductAdminRequest",
+        "example": {
+          "name": "LED Head Light",
+          "description": "LED Head light for Tesla",
+          "price": "1000.00"
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "price"
+        ]
+      },
+      "AddtocartRequest": {
+        "title": "AddtocartRequest",
+        "example": {
+          "product_id": 9,
+          "quantity": 7
+        },
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "product_id",
+          "quantity"
+        ]
+      },
+      "OrderRequest": {
+        "title": "OrderRequest",
+        "example": {
+          "delivery_date": "2024-02-01"
+        },
+        "type": "object",
+        "properties": {
+          "delivery_date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "delivery_date"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }
