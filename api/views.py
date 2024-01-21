@@ -10,6 +10,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework import status
 from django.contrib.auth import authenticate
 from datetime import datetime
+from django.http import JsonResponse
 from .serializers import (
     ProductSerializer,
     UserSerializer,
@@ -191,3 +192,10 @@ class CheckoutView(APIView):
             return Response({'error': 'Cart not found'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+class NotFoundView(generics.RetrieveUpdateDestroyAPIView):
+    def get(self, request):
+        return JsonResponse({
+            'status_code': 404,
+            'error': f'The {request.get_full_path()} was not found'
+        })

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from .views import (
     ProductListCreateView,
     ProductDetailView,
@@ -13,9 +13,10 @@ from .views import (
 from .views import (
     UserRegistrationView,
     CustomAuthTokenView,
+    NotFoundView
 )
 
-from rest_framework.authtoken.views import obtain_auth_token
+
 from django.views.generic import TemplateView
 
 
@@ -33,5 +34,6 @@ urlpatterns = [
         template_name='swagger-ui.html',
         extra_context={'schema_url': 'openapi-schema'}
     ), name='swagger-ui'),
+    re_path(r'^.*$', NotFoundView.as_view()),
     
 ]
