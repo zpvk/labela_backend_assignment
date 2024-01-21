@@ -19,9 +19,11 @@ class AddToCartView(APIView):
         user_cart, created = Cart.objects.get_or_create(user=user)
 
         product_id = request.data.get('product_id')
-        print("product id ", product_id)
         quantity = request.data.get('quantity')
-        print("quntity ", quantity)
+
+         # Validate that product_id and quantity are numbers
+        if not (product_id.isdigit() and quantity.isdigit()):
+            return Response({'error': 'Product ID and quantity must be numbers'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
             # Assuming you have a Product model with a 'price' field

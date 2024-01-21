@@ -18,7 +18,10 @@ class CheckoutView(APIView):
             delivery_date_str = request.data.get('delivery_date')
             
             # Validate and parse the delivery date
-            delivery_date = datetime.strptime(delivery_date_str, '%Y-%m-%d').date()
+            try:
+                delivery_date = datetime.strptime(delivery_date_str, '%Y-%m-%d').date()
+            except ValueError:
+                return Response({'error': 'Invalid date format. Please use YYYY-MM-DD.'}, status=status.HTTP_400_BAD_REQUEST)
 
             # Validate that delivery date is greater than the current date
             if delivery_date <= datetime.now().date():
