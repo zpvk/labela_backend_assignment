@@ -67,11 +67,12 @@ docker compose run web python manage.py createsuperuser
 ```
 
 ## User Stories and API Endpoints
-### Access Swagger UI
-
+### Access Swagger UI For Quick View Endpoints
+I have also implemented Swagger, but it is not automatically generated with the Swagger library. Instead, I have integrated it using the Postman collection. Kindly utilize Postman for API testing
 Visit http://localhost:8000/api/swagger-ui/ to explore the implemented API endpoints.
-Also updated Postman collection JSON in the repo
-`AutoCompany.postman_collection.json` some endpoints are mentioned below
+
+### API Test Postman 
+For testing the endpoint, please utilize the Postman collection JSON available in the repository named `AutoCompany.postman_collection.json` The mentioned endpoints are outlined below.
 
 1. User Registration and Token Retrieval
     - Endpoint: `/register`
