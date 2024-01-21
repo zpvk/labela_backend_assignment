@@ -44,6 +44,5 @@ CMD /wait-for-postgres.sh db set -xe; \
     python3 manage.py makemigrations; \
     python3 manage.py migrate --noinput; \
     python3 manage.py loaddata fixtures/db_data.json; \
-    python3 api/management/create_superuser.py; \
     python3 manage.py runserver 0.0.0.0:${PORT}
 
