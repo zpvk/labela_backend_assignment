@@ -68,7 +68,7 @@ docker compose run web python manage.py createsuperuser
 
 ## User Stories and API Endpoints
 ### Access Swagger UI
-Visit `http://localhost:8000/api/swagger-ui/` to explore the implemented API endpoints.
+Visit http://localhost:8000/api/swagger-ui/ to explore the implemented API endpoints.
 
 1. User Registration and Token Retrieval
     - Endpoint: `/register`
