@@ -1,57 +1,103 @@
-# Assignment
+# Auto API Assignment
 
-Oh, hello!
----------
-First of all, awesome that you want to join our team! We already know that you're a cool person, but now we just want to know if you're a cool coder as well! To that end we've set up a basic exercise for you to complete.
+# Developer Local and Docker Setup
 
-**Our tech stack!**
+## Requirements
+- Python 3.8 or higher
+- PostgreSQL (for local setup)
+- Docker (for Docker setup)
+- Docker Compose (for Docker setup)
 
-Before we start off, let me elaborate about our tech stack. For most projects, we use the following technologies:
+## Developer Local Setup
 
-* Python, for rapid development
-* Relational database, we mostly use PostgreSQL 
-* Widely accepted frameworks, we mostly use the Django Framework
-* Database ORM, because using a standard is faster and more secure (default provided by Django)
+### Step 1: Clone the Repository
+git clone https://github.com/zpvk/labela_backend_assignment.git
+cd your-repository
 
-The assignment
----------
-A company specialised in car parts wants to modernise their company, and start selling their parts online. Being the pro car salesmen that they are, they decided to develop the front-end via another agency. They entrust the back-end to none other than Label A.
+### Step 2: Create a Virtual Environment (Optional but recommended)
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
 
-After some initial research, we've defined the following user stories on top of our backlog:
+### Step 3: Install Dependencies
+pip install -r requirements.txt
 
-* As a company, I want all my products in a database, so I can offer them via our new platform to customers
-* As a client, I want to add a product to my shopping cart, so I can order it at a later stage
-* As a client, I want to remove a product from my shopping cart, so I can tailor the order to what I actually need
-* As a client, I want to order the current contents in my shopping cart, so I can receive the products I need to repair my car
-* As a client, I want to select a delivery date and time, so I will be there to receive the order
-* As a client, I want to see an overview of all the products, so I can choose which product I want
-* As a client, I want to view the details of a product, so I can see if the product satisfies my needs
+### Step 4: Set Environment Variables
+Create a `.env` file in the project root and add the following variables:
+DEBUG=True
+SECRET_KEY=my_secret_key
+DB_NAME=my_database
+DB_USER=my_user
+DB_PASSWORD=my_password
+DB_HOST=localhost
+DB_PORT=5432
 
-Develop an API according to the user stories defined above. You should not spend more than 8 hours on this exercise, so put on your MVP glasses and prioritise according to what you think the product should minimally entail.
+### Step 5: Run PostgreSQL Server (If not using Docker)
+Make sure your PostgreSQL server is running, and the database and user specified in the `.env` file are created.
 
-Included in this repository:
+### Step 6: Apply Migrations
+python manage.py makemigrations
+python manage.py migrate
 
-* A freshly installed Django Framework (with not admin user -> go to this page to see how to create one: https://docs.djangoproject.com/en/1.8/intro/tutorial02/)
-* For convenience you can use .sqllite which is already configured in the project instead of PostgreSQL
-* Bonus points if you can include PostgreSQL in a Docker setup -> base Dockerfile is included
+### Step 7: Create a Superuser (for accessing the admin panel)
+python manage.py createsuperuser
 
-We can make the following assumptions:
+### Step 8: Run the Development Server
+python manage.py runserver
 
-* We don't have to worry about the front-end, but should think of a data format a JavaScript application can handle
-* We don't need to worry about the payment of the order. Who needs money anyway?
+### Step 9: Access Swagger UI
+Visit http://localhost:8000/api/swagger-ui/ to explore the implemented API endpoints.
 
-How to score bonus points (ergo: we really advise you to tackle it this way):
+## Docker Developer Setup
 
-* Implement a RESTful API
-* Use a ORM
-* Document how we can set up and instantiate the project, so we can easily test it functionally
+### Repeat Steps 1-2 for Cloning the Repository
 
-If you have any questions, feel free to contact us! Any feedback on this exercise is always welcome!
+### Step 3: Run Docker Compose
+docker-compose up -d
 
+### Step 4: Access Swagger UI
+Visit http://localhost:8000/api/swagger-ui/ to explore the implemented API endpoints.
 
-**Want to run the project in Docker?**
+## User Stories and API Endpoints
 
-- ```docker build -t autocompany .```
-- ``` docker run -p 80:80 -d autocompany```
-- Navigate to ```http://127.0.0.1/```
+1. User Registration and Token Retrieval
+    - Endpoint: /register
+    - Method: POST
+    - Request Body: 
+        {   
+            "email: "your@email.com",
+            "username": "your_username",
+            "password": "your_password"
+        }
 
+2. Company - Add Products to Database
+    - Endpoint: /api/admin/products
+    - Method: POST
+    - Requires authentication: Yes
+    - Request Body: Include product details
+
+3. Client - Add Product to Shopping Cart
+    - Endpoint: /api/cart/add
+    - Method: POST
+    - Requires authentication: Yes
+    - Request Body: Include product details
+
+4. Client - Remove Product from Shopping Cart
+    - Endpoint: /api/cart/remove/<id>
+    - Method: DELETE
+    - Requires authentication: Yes
+
+5. Client - Order Products in Shopping Cart with Select Delivery Date and Time
+    - Endpoint: /api/checkout
+    - Method: POST
+    - Requires authentication: Yes
+    - Request Body: Include delivery date
+
+7. Client - View All Products (pegination page number with page size limit)
+    - Endpoint: /api/products
+    - Method: GET
+    - Requires authentication: No
+
+8. Client - View Details of a Product
+    - Endpoint: /api/products/<id>
+    - Method: GET
+    - Requires authentication: No
