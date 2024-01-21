@@ -68,9 +68,10 @@ docker compose run web python manage.py createsuperuser
 
 ## User Stories and API Endpoints
 ### Access Swagger UI
+
 Visit http://localhost:8000/api/swagger-ui/ to explore the implemented API endpoints.
 Also updated Postman collection JSON in the repo
-`AutoCompany.postman_collection.json`
+`AutoCompany.postman_collection.json` some endpoints are mentioned below
 
 1. User Registration and Token Retrieval
     - Endpoint: `/register`
@@ -87,25 +88,25 @@ Also updated Postman collection JSON in the repo
 2. Company - Add Products to Database
     - Endpoint: `/api/admin/products`
     - Method: POST
-    - Requires authentication: Yes
+    - Requires authentication: Yes (Admin)
     - Request Body: Include product details
 
 3. Client - Add Product to Shopping Cart
     - Endpoint: `/api/cart/add`
     - Method: POST
-    - Requires authentication: Yes
+    - Requires authentication: Yes (User)
     - Request Body: Include product details
 
 4. Client - Remove Product from Shopping Cart
     - Endpoint: `/api/cart/remove/<id>`
     - Method: DELETE
-    - Requires authentication: Yes
+    - Requires authentication: Yes (User)
 
 5. Client - Order Products in Shopping Cart with Select Delivery Date and Time
     - Endpoint: `/api/checkout`
     - Method: POST
     - Requires authentication: Yes
-    - Request Body: Include delivery date
+    - Request Body: Include delivery date (User)
 
 7. Client - View All Products (pagination page number with page size limit)
     - Endpoint: `/api/products/?page= &page_size= `
