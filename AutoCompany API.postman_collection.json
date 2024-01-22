@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "ab003288-497d-4bb2-bc28-024c1e310e54",
-		"name": "AutoCompany",
+		"_postman_id": "4aa08a9d-3b3f-40e2-9a77-ad2df5f51fae",
+		"name": "AutoCompany API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "14213224"
 	},
 	"item": [
 		{
-			"name": "Products",
+			"name": "products",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -31,7 +31,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/products/?page=1&page_size=5",
+					"raw": "http://127.0.0.1:8000/api/products?page=1&page_size=5",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -42,8 +42,7 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"products",
-						""
+						"products"
 					],
 					"query": [
 						{
@@ -60,79 +59,12 @@
 			"response": []
 		},
 		{
-			"name": "User register",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\": \"pasand@gmail.com\",\n    \"username\": \"pasand\",\n    \"password\": \"123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/register/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"register",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Registered user token",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"pasand\",\n    \"password\": \"123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/api-token-auth/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"api-token-auth",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Product detail",
+			"name": "product details",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/products/3",
+					"raw": "http://127.0.0.1:8000/api/products/2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -144,20 +76,20 @@
 					"path": [
 						"api",
 						"products",
-						"3"
+						"2"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Add Product Admin",
+			"name": "product - admin",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 98c5686f15e32bb532d039e7a90d697a1537118d",
+						"value": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
 						"type": "text"
 					}
 				],
@@ -171,7 +103,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/admin/products/",
+					"raw": "http://127.0.0.1:8000/api/products",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -182,28 +114,26 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"admin",
-						"products",
-						""
+						"products"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Update Product Admin",
+			"name": "product details - admin",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 98c5686f15e32bb532d039e7a90d697a1537118d",
+						"value": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"LED Head Light\",\n    \"description\": \"LED Head light for Tesla\",\n    \"price\": \"1000.00\"\n}",
+					"raw": "{\n    \"name\": \"Staring Moter\",\n    \"description\": \"Toyota axio Staring Moter\",\n    \"price\": \"7500.00\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -211,7 +141,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/products/3/",
+					"raw": "http://127.0.0.1:8000/api/products/11",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -223,26 +153,25 @@
 					"path": [
 						"api",
 						"products",
-						"3",
-						""
+						"11"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Delete Product Admin",
+			"name": "product details - admin",
 			"request": {
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 98c5686f15e32bb532d039e7a90d697a1537118d",
+						"value": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/products/3/",
+					"raw": "http://127.0.0.1:8000/api/products/10",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -254,27 +183,27 @@
 					"path": [
 						"api",
 						"products",
-						"3",
-						""
+						"10"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Add to cart",
+			"name": "register",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
-						"key": "Authorization",
-						"value": "Token 431a43491b1896fa11cc735ff0441d9b3f494288",
-						"type": "text"
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"product_id\": 9,\n    \"quantity\": 7\n}\n",
+					"raw": "{\n    \"email\": \"rohank@gmail.com\",\n    \"username\": \"rohank\",\n    \"password\": \"123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -282,7 +211,71 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/cart/add/",
+					"raw": "http://localhost:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/api-token-auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"api-token-auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 16,\n    \"quantity\": 5\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/cart",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -293,27 +286,25 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"cart",
-						"add",
-						""
+						"cart"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "View Cart",
+			"name": "cart",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 431a43491b1896fa11cc735ff0441d9b3f494288",
+						"value": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/cart/view/",
+					"raw": "http://127.0.0.1:8000/api/cart",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -324,27 +315,25 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"cart",
-						"view",
-						""
+						"cart"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Remove cart item",
+			"name": "cart",
 			"request": {
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 431a43491b1896fa11cc735ff0441d9b3f494288",
+						"value": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/cart/remove/5/",
+					"raw": "http://127.0.0.1:8000/api/cart/11",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -356,22 +345,20 @@
 					"path": [
 						"api",
 						"cart",
-						"remove",
-						"5",
-						""
+						"11"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Order",
+			"name": "order",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 431a43491b1896fa11cc735ff0441d9b3f494288",
+						"value": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
 						"type": "text"
 					}
 				],
@@ -385,7 +372,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/checkout/",
+					"raw": "http://127.0.0.1:8000/api/checkout",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -396,8 +383,7 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"checkout",
-						""
+						"checkout"
 					]
 				}
 			},
