@@ -3,6 +3,7 @@ from api.serializers.cartItemSerializer import CartItemSerializer
 from api.models.cartModel import Cart, CartItem
 from api.models.productModel import Product
 
+
 class CartSerializer(serializers.ModelSerializer):
     items = CartItemSerializer(many=True, read_only=True)
 
