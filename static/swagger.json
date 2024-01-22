@@ -1,514 +1,1034 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "version": "1.0",
-      "title": "AutoCompany",
-      "contact": {}
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "AutoCompany API",
+    "contact": {},
+    "x-codegen-settings": {
+      "Nullify404": false,
+      "GenerateAsyncCode": true,
+      "UseMethodPrefix": false,
+      "UseModelPostfix": false,
+      "UseControllerPrefix": true,
+      "UseEnumPostfix": true,
+      "CollectParameters": false,
+      "UseConstructorsForConfig": false,
+      "UseCommonSDKLibrary": false,
+      "iOSUseAppInfoPlist": false,
+      "AndroidUseAppManifest": false,
+      "BodySerialization": 0,
+      "EnableAdditionalModelProperties": false,
+      "PreserveParameterOrder": true,
+      "AppendContentHeaders": true,
+      "iOSGenerateCoreData": false,
+      "GenerateInterfaces": false,
+      "NodeHttpClient": "NODE_REQUEST",
+      "ValidateRequiredParameters": false,
+      "JavaUsePropertiesConfig": false,
+      "Timeout": 0.0,
+      "StoreTimezoneInformation": false,
+      "EnablePHPComposerVersionString": false,
+      "EnableLogging": false,
+      "ArraySerialization": "Indexed",
+      "ModelSerializationScheme": "Json",
+      "UseExceptionPrefix": true,
+      "RunscopeEnabled": false,
+      "AndroidHttpClient": "ANDROID_OK",
+      "ObjCHttpClient": "UNIREST",
+      "CSharpHttpClient": "UNIREST",
+      "PHPHttpClient": "UNIREST",
+      "JavaHttpClient": "JAVA_OK",
+      "ParameterArrayFormat": "ParamArrayWithIndex",
+      "SecurityProtocols": [
+        "Ssl3",
+        "Tls"
+      ],
+      "GenerateTravisConfig": false,
+      "GenerateCircleConfig": false,
+      "GenerateAppveyorConfig": false,
+      "GenerateJenkinsConfig": false,
+      "EnableHttpCache": false,
+      "Retries": 0,
+      "RetryInterval": 1.0,
+      "GenerateAdvancedDocs": true,
+      "UnderscoreNumbers": true,
+      "UseSingletonPattern": true,
+      "DisableLinting": false,
+      "ApplyCustomizations": [],
+      "SortResources": false,
+      "AllowSkippingSSLCertVerification": false,
+      "DoNotSplitWords": [],
+      "EnableGlobalUserAgent": true,
+      "ReturnCompleteHttpResponse": false,
+      "GenerateModels": true,
+      "GenerateExceptions": true,
+      "IgnoreIfNullJson": false,
+      "DisableDocs": false,
+      "LiftParameterDescriptionFromCustomType": false,
+      "ThrowForHttpErrorStatusCodes": true,
+      "ResponseMapping": {
+        "Type": "Simple"
+      },
+      "ForceKeywordArgsInRuby": false,
+      "SymbolizeHashKeysInRuby": false,
+      "UsageExampleEndpoint": {
+        "Description": "",
+        "EndpointGroupName": "",
+        "EndpointName": ""
+      },
+      "IsLatestVersion": false,
+      "EnableImmutableModels": false,
+      "GenerateEnums": true,
+      "BackoffFactor": 2.0,
+      "StatusCodesToRetry": [
+        408,
+        413,
+        429,
+        500,
+        502,
+        503,
+        504,
+        521,
+        522,
+        524
+      ],
+      "RequestMethodsToRetry": [
+        "GET",
+        "PUT"
+      ],
+      "UserConfigurableRetries": true,
+      "UseEndpointMethodName": false,
+      "EncodeTemplateParameters": true,
+      "GenerateExamplesForOptionalFields": false,
+      "MultitargetDotnetVersions": false,
+      "BackoffMax": 0.0,
+      "RetryOnTimeout": true,
+      "EnableCookies": false,
+      "EnableJsonPassThroughForAny": false,
+      "PascalCaseEnumForCSharp": false,
+      "PascalCaseEnumForTypeScript": false,
+      "DisableMultipleAuth": false,
+      "AddSingleAuthDeprecatedCode": true,
+      "EnableExperimentalTypeCombinatorGeneration": false,
+      "ErrorTemplates": {}
     },
-    "host": "127.0.0.1:8000",
-    "basePath": "/api",
-    "securityDefinitions": {},
-    "schemes": [
-      "http"
-    ],
-    "consumes": [
-      "application/json"
-    ],
-    "produces": [
-      "application/json"
-    ],
-    "paths": {
-      "/products": {
-        "get": {
-          "summary": "Products",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "Products",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
+    "x-server-configuration": {
+      "default-environment": "production",
+      "default-server": "Server 1",
+      "environments": [
+        {
+          "name": "production",
+          "servers": [
             {
-              "name": "page",
-              "in": "query",
-              "required": true,
-              "type": "integer",
-              "format": "int32",
-              "description": ""
+              "name": "Server 1",
+              "url": "http://127.0.0.1:8000/api"
             },
             {
-              "name": "page_size",
-              "in": "query",
-              "required": true,
-              "type": "integer",
-              "format": "int32",
-              "description": ""
+              "name": "Server 2",
+              "url": "http://localhost:8000/api"
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          }
+          ]
         }
-      },
-      "/register": {
-        "post": {
-          "summary": "User register",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "Userregister",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Body",
-              "in": "body",
-              "required": true,
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/UserregisterRequest"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          }
-        }
-      },
-      "/api-token-auth": {
-        "post": {
-          "summary": "Registered user token",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "Registeredusertoken",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Body",
-              "in": "body",
-              "required": true,
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/RegisteredusertokenRequest"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          }
-        }
-      },
-      "/products/3": {
-        "get": {
-          "summary": "Product detail",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "Productdetail",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          }
-        },
-        "put": {
-          "summary": "Update Product Admin",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "UpdateProductAdmin",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "Body",
-              "in": "body",
-              "required": true,
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/UpdateProductAdminRequest"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "security": []
-        },
-        "delete": {
-          "summary": "Delete Product Admin",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "DeleteProductAdmin",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string",
-              "description": ""
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "security": []
-        }
-      },
-      "/admin/products": {
-        "post": {
-          "summary": "Add Product Admin",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "AddProductAdmin",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "Body",
-              "in": "body",
-              "required": true,
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/AddProductAdminRequest"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "security": []
-        }
-      },
-      "/cart/add": {
-        "post": {
-          "summary": "Add to cart",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "Addtocart",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "Body",
-              "in": "body",
-              "required": true,
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/AddtocartRequest"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "security": []
-        }
-      },
-      "/cart/view": {
-        "get": {
-          "summary": "View Cart",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "ViewCart",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string",
-              "description": ""
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "security": []
-        }
-      },
-      "/cart/remove/5": {
-        "delete": {
-          "summary": "Remove cart item",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "Removecartitem",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string",
-              "description": ""
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "security": []
-        }
-      },
-      "/checkout": {
-        "post": {
-          "summary": "Order",
-          "tags": [
-            "Misc"
-          ],
-          "operationId": "Order",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string",
-              "description": ""
-            },
-            {
-              "name": "Body",
-              "in": "body",
-              "required": true,
-              "description": "",
-              "schema": {
-                "$ref": "#/definitions/OrderRequest"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "headers": {}
-            }
-          },
-          "security": []
-        }
-      }
+      ],
+      "parameters": []
     },
-    "definitions": {
-      "UserregisterRequest": {
-        "title": "UserregisterRequest",
-        "example": {
-          "email": "pasand@gmail.com",
-          "username": "pasand",
-          "password": "123"
-        },
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string"
-          },
-          "username": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "email",
-          "username",
-          "password"
-        ]
-      },
-      "RegisteredusertokenRequest": {
-        "title": "RegisteredusertokenRequest",
-        "example": {
-          "username": "pasand",
-          "password": "123"
-        },
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "username",
-          "password"
-        ]
-      },
-      "AddProductAdminRequest": {
-        "title": "AddProductAdminRequest",
-        "example": {
-          "name": "Head Light",
-          "description": "Head light for Tesla",
-          "price": "1000.00"
-        },
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "price": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "description",
-          "price"
-        ]
-      },
-      "UpdateProductAdminRequest": {
-        "title": "UpdateProductAdminRequest",
-        "example": {
-          "name": "LED Head Light",
-          "description": "LED Head light for Tesla",
-          "price": "1000.00"
-        },
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "price": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "description",
-          "price"
-        ]
-      },
-      "AddtocartRequest": {
-        "title": "AddtocartRequest",
-        "example": {
-          "product_id": 9,
-          "quantity": 7
-        },
-        "type": "object",
-        "properties": {
-          "product_id": {
+    "x-image-uri": ""
+  },
+  "host": "127.0.0.1:8000",
+  "basePath": "/api",
+  "securityDefinitions": {},
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "products",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "products",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "x-example": 1,
+            "description": ""
           },
-          "quantity": {
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": true,
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "x-example": 5,
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
           }
         },
-        "required": [
-          "product_id",
-          "quantity"
-        ]
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/products?page=1&page_size=5"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "products"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
       },
-      "OrderRequest": {
-        "title": "OrderRequest",
-        "example": {
-          "delivery_date": "2024-02-01"
-        },
-        "type": "object",
-        "properties": {
-          "delivery_date": {
-            "type": "string"
+      "post": {
+        "summary": "product - admin",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "product-admin",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-example": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "x-example": {
+              "name": "Head Light",
+              "description": "Head light for Tesla",
+              "price": "1000.00"
+            },
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/product-adminrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
           }
         },
-        "required": [
-          "delivery_date"
-        ]
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/products",
+              "headers": {
+                "Authorization": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
+                "Content-Type": "application/json"
+              },
+              "body": "{\r\n  \"name\": \"Head Light\",\r\n  \"description\": \"Head light for Tesla\",\r\n  \"price\": \"1000.00\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "product - admin"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
       }
     },
-    "tags": [
-      {
-        "name": "Misc",
-        "description": ""
+    "/products/2": {
+      "get": {
+        "summary": "product details",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "productdetails",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/products/2"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "product details"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
       }
-    ]
-  }
+    },
+    "/products/11": {
+      "put": {
+        "summary": "product details - admin",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "productdetails-admin",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-example": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "x-example": {
+              "name": "Staring Moter",
+              "description": "Toyota axio Staring Moter",
+              "price": "7500.00"
+            },
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/productdetails-adminrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/products/11",
+              "headers": {
+                "Authorization": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
+                "Content-Type": "application/json"
+              },
+              "body": "{\r\n  \"name\": \"Staring Moter\",\r\n  \"description\": \"Toyota axio Staring Moter\",\r\n  \"price\": \"7500.00\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "product details - admin"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      }
+    },
+    "/products/10": {
+      "delete": {
+        "summary": "product details - admin",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Deleteproductdetails-admin",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-example": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/products/10",
+              "headers": {
+                "Authorization": "Token cc7f384e8dd02991bdeb2259d966362aa12ba10a"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "product details - admin1"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "register",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "register",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "x-example": {
+              "email": "rohank@gmail.com",
+              "username": "rohank",
+              "password": "123"
+            },
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/registerrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/register",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\r\n  \"email\": \"rohank@gmail.com\",\r\n  \"username\": \"rohank\",\r\n  \"password\": \"123\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "register"
+          }
+        ],
+        "x-server-name": "Server 2",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      }
+    },
+    "/api-token-auth": {
+      "post": {
+        "summary": "user token",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "usertoken",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "x-example": {
+              "username": "admin",
+              "password": "admin"
+            },
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/usertokenrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/api-token-auth",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "user token"
+          }
+        ],
+        "x-server-name": "Server 2",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      }
+    },
+    "/cart": {
+      "post": {
+        "summary": "cart",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "cart",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-example": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "x-example": {
+              "product_id": 16,
+              "quantity": 5
+            },
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/cartrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/cart",
+              "headers": {
+                "Authorization": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
+                "Content-Type": "application/json"
+              },
+              "body": "{\r\n  \"product_id\": 16,\r\n  \"quantity\": 5\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "cart"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      },
+      "get": {
+        "summary": "cart",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Getcart",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-example": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/cart",
+              "headers": {
+                "Authorization": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "cart1"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      }
+    },
+    "/cart/11": {
+      "delete": {
+        "summary": "cart1",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "cart1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-example": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/cart/11",
+              "headers": {
+                "Authorization": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "cart2"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      }
+    },
+    "/checkout": {
+      "post": {
+        "summary": "order",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "order",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-example": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "x-example": {
+              "delivery_date": "2024-02-01"
+            },
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/orderrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/checkout",
+              "headers": {
+                "Authorization": "Token 88e46711aab8f65bf76c0c117b24dd85e52ef2c3",
+                "Content-Type": "application/json"
+              },
+              "body": "{\r\n  \"delivery_date\": \"2024-02-01\"\r\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "statusCode": "200",
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "order"
+          }
+        ],
+        "x-server-name": "Server 1",
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false,
+          "ErrorTemplates": {},
+          "SkipAdditionalHeaders": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "product-adminrequest": {
+      "title": "product-adminrequest",
+      "example": {
+        "name": "Head Light",
+        "description": "Head light for Tesla",
+        "price": "1000.00"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "price"
+      ]
+    },
+    "productdetails-adminrequest": {
+      "title": "productdetails-adminrequest",
+      "example": {
+        "name": "Staring Moter",
+        "description": "Toyota axio Staring Moter",
+        "price": "7500.00"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "price"
+      ]
+    },
+    "registerrequest": {
+      "title": "registerrequest",
+      "example": {
+        "email": "rohank@gmail.com",
+        "username": "rohank",
+        "password": "123"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "username",
+        "password"
+      ]
+    },
+    "usertokenrequest": {
+      "title": "usertokenrequest",
+      "example": {
+        "username": "admin",
+        "password": "admin"
+      },
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ]
+    },
+    "cartrequest": {
+      "title": "cartrequest",
+      "example": {
+        "product_id": 16,
+        "quantity": 5
+      },
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "product_id",
+        "quantity"
+      ]
+    },
+    "orderrequest": {
+      "title": "orderrequest",
+      "example": {
+        "delivery_date": "2024-02-01"
+      },
+      "type": "object",
+      "properties": {
+        "delivery_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "delivery_date"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}
