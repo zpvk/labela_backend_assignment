@@ -69,13 +69,13 @@ docker compose run web python manage.py createsuperuser
 ## User Stories and API Endpoints
 ### Access Swagger UI For Quick View Endpoints
 I have also implemented Swagger, but it is not automatically generated with the Swagger library. Instead, I have integrated it using the Postman collection. Kindly utilize Postman for API testing
-Visit http://localhost:8000/api/swagger-ui/ to explore the implemented API endpoints.
+Visit http://localhost:8000/api/swagger-ui to explore the implemented API endpoints.
 
 ### API Test Postman 
-For testing the endpoint, please utilize the Postman collection JSON available in the repository named `AutoCompany.postman_collection.json` The mentioned endpoints are outlined below.
+To test the endpoint, kindly make use of the Postman collection JSON provided in the repository, named `AutoCompanyAPI.postman_collection.json`. The essential endpoints are outlined below. You can import the Postman collection into Postman and perform tests on the specified endpoints..
 
 1. User Registration and Token Retrieval
-    - Endpoint: `/register`
+    - Endpoint: `/api/register`
     - Method: POST
     - Request Body:
       ``` 
@@ -87,19 +87,19 @@ For testing the endpoint, please utilize the Postman collection JSON available i
       ```
 
 2. Company - Add Products to Database
-    - Endpoint: `/api/admin/products`
+    - Endpoint: `/api/products`
     - Method: POST
     - Requires authentication: Yes (Admin)
     - Request Body: Include product details
 
 3. Client - Add Product to Shopping Cart
-    - Endpoint: `/api/cart/add`
+    - Endpoint: `/api/cart`
     - Method: POST
     - Requires authentication: Yes (User)
     - Request Body: Include product details
 
 4. Client - Remove Product from Shopping Cart
-    - Endpoint: `/api/cart/remove/<id>`
+    - Endpoint: `/api/cart/<product-id>`
     - Method: DELETE
     - Requires authentication: Yes (User)
 
@@ -110,7 +110,7 @@ For testing the endpoint, please utilize the Postman collection JSON available i
     - Request Body: Include delivery date (User)
 
 7. Client - View All Products (pagination page number with page size limit)
-    - Endpoint: `/api/products/?page= &page_size= `
+    - Endpoint: `/api/products?page= &page_size= `
     - Method: GET
     - Requires authentication: No
 
