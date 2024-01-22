@@ -22,7 +22,7 @@ class AddToCartView(APIView):
         quantity = request.data.get('quantity')
 
          # Validate that product_id and quantity are numbers
-        if not (product_id.isdigit() and quantity.isdigit()):
+        if not (isinstance(product_id, int) and isinstance(quantity, int)):
             return Response({'error': 'Product ID and quantity must be numbers'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
